@@ -1,0 +1,163 @@
+/*// MAIN STYLES //*/
+*{
+  font-family: "Roboto", sans-serif;
+}
+
+body{
+  margin: 0;
+  background-color: #63738a;
+}
+
+.my-form h1{
+  text-align: center;
+  color: #636363;
+  position: relative;
+}
+
+.my-form h1::before, .my-form h1::after{
+  content: "";
+  height: 3px;
+  width: 22%;
+  background-color: #ccc;
+  position: absolute;
+  top: 50%;
+}
+
+.my-form h1::before{
+  left: 10%;
+}
+
+.my-form h1::after{
+  right: 10%;
+}
+
+#form-text{
+  text-align: center; 
+}
+
+.my-form, #sign-in{
+  width: 450px;
+  margin: 0 auto;
+}
+
+.my-form{
+  background-color: #f2f3f7;
+  border-radius: 5px;
+  margin-top: 30px;
+  padding-top: 10px;
+}
+
+#sign-in{
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.half-input-div, .full-input-div{
+  margin: 0 20px;
+}
+
+#form-text, p.full-input{
+  color: #999;
+}
+
+#first-name{
+  float: left;
+}
+
+#last-name{
+  float: right;
+}
+
+.half-input, .full-input{
+  margin: 10px 0;
+  height: 45px;
+  padding: 15px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  color: #555;
+  transition: border 0.15s ease-in-out, box-shadow 0.15s ease-in-out; 
+}
+
+.half-input:focus, .full-input:focus{
+  border: 1px solid #48a548;
+  box-shadow: 1px 1px 5px #56bb56;
+}
+
+.half-input{
+  width: calc(50% - 10px);
+  box-sizing: border-box;
+}
+
+.full-input{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#register, #register:hover{
+  border: 0;
+  margin-bottom: 40px;
+  color: #fff;
+  height: 50px;
+  border-radius: 3px;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+#register{
+  background-image: linear-gradient(to bottom, #48a548 0, #409440 100%);
+}
+
+#register:hover{
+  background-color: #409440;
+  background-image: none;
+}
+
+p.full-input{
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+p.full-input a:link, p.full-input a:visited{
+  color: #48a548;
+  text-decoration: none;
+}
+
+p.full-input a:hover{
+  color: #409440;
+  text-decoration: none;
+}
+
+#register{
+  border: 0;
+}
+
+#sign-in a{
+  color: #fff;
+}
+
+/*// POP-UP ANIMATION //*/
+.my-form{
+  position: relative;
+  top: -700px;
+  animation: drop 0.7s ease forwards;
+}
+
+#sign-in{
+  opacity: 0;
+  animation: appear 0.5s ease forwards 0.7s;
+}
+
+@keyframes drop{
+  0%{ opacity: 0; }
+  70%{ transform: translateY(720px); }
+  100%{ transform: translateY(700px);
+        opacity: 1; }
+}
+
+@keyframes appear{
+  0%{}
+  100%{ opacity: 1; }
+}

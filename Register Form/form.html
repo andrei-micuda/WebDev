@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HTML Form</title>
+  <link rel="stylesheet" href="from.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+</head>
+
+<body>
+  <!-- https://www.tutorialrepublic.com/snippets/preview.php?topic=bootstrap&file=simple-registration-form -->
+  <main>
+    <form action="" class='my-form'>
+      <h1>Register</h1>
+      <p id="form-text">Create your account. It's free and only takes a minute.</p>
+      <div class="half-input-div">
+        <input type="text" name="first-name" id="first-name" class="half-input" placeholder="First Name">
+        <input type="text" name="last-name" id="last-name" class="half-input" placeholder="Last Name">
+      </div>
+
+      <br>
+
+      <div class="full-input-div">
+        <input type="email" name="email" id="email" class="full-input" placeholder="Email">
+        <br>
+        <input type="password" name="pass" id="pass" class="full-input" placeholder="Password">
+        <br>
+        <input type="password" name="re-pass" id="re-pass" class="full-input" placeholder="Confirm Password">
+        <br>
+        <p class="full-input"><input type="checkbox" name="terms" id="terms" required> I accept the <a href="#">Terms of Use</a> & <a href="#">Privacy Policy</a></p>
+        <input type="submit" class="full-input" value="Register Now" id="register">
+      </div>
+
+    </form>
+
+    <p id="sign-in">Already have an account? <a href="#">Sign in</a></p>
+  </main>
+
+</body>
+</html>
