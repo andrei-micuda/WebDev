@@ -1,0 +1,12 @@
+:root {
+  --sticky-1-main: #F8F141;
+  --sticky-1-accent: #E0DA3D;
+  --sticky-2-main: #FF7EB9;
+  --sticky-2-accent: #E56AA2;
+  --sticky-3-main: #7AFCFF;
+  --sticky-3-accent: #67D9DC;
+  --bg-color: #B7B7B7;
+  --my-font: 'Rhodium Libre', sans-serif;
+  font-size: 16px;
+  --font-big: 1.8rem;
+}

@@ -1,0 +1,39 @@
+.note-focus {
+  padding: 10px 30px;
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1 {
+  margin: 0;
+  font-size: 4.5rem;
+  font-weight: 100;
+}
+
+img {
+  position: relative;
+  transform: scale(1.1, 0.85);
+  top: -30px;
+  left: -5px;
+}
+
+p {
+  font-size: 2rem;
+  text-align: center;
+  margin: 20px 0 30px 0;
+}
+
+a {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}

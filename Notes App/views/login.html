@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes - Log in</title>
+
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/login.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Rhodium+Libre&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+</head>
+
+<body>
+  <div class="note-focus">
+    <div class="note-corner"></div>
+    <img src="img/logo.svg" alt="Notes logo" class="logo">
+    <form action="">
+      <input type="email" name="email-input" id="email-input" placeholder="Email">
+      <input type="password" name="pass-input" id="pass-input" placeholder="Password">
+      <label for="remember-me" id="remember-me-label" class="checkbox-container">
+        <input type="checkbox" name="remember-me" id="remember-me">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z" /></svg>
+        Remeber me
+      </label>
+      <button type="submit">Log in</button>
+    </form>
+  </div>
+  <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+
+  <script src="scripts/login.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
+</body>
+
+</html>
