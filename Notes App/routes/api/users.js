@@ -50,6 +50,7 @@ async function readUsers() {
   });
 
   // Create user
+  /*// expectes email, fullName, password //*/
   router.post('/', async (req, res) => {
     const newUser = {
       id: uuid.v4(),
