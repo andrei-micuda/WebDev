@@ -37,3 +37,37 @@ a {
   font-size: 1.8rem;
   margin-bottom: 20px;
 }
+
+/*// MEDIA QUERIES //*/
+@media screen and (max-width: 1250px) {
+  .note-focus {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .note-focus {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  img {
+    transform: scale(0.8);
+    top: -25px;
+    left: 0;
+  }
+
+  p {
+    font-size: 1.6rem;
+  }
+
+  a {
+    font-size: 1.5rem;
+  }
+}

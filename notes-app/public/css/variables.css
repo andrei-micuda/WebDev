@@ -6,7 +6,10 @@
   --sticky-3-main: #7AFCFF;
   --sticky-3-accent: #67D9DC;
   --bg-color: #B7B7B7;
-  --my-font: 'Rhodium Libre', sans-serif;
+  --my-font: 'Rhodium Libre',
+    'Segoe UI Emoji',
+    sans-serif,
+    'Segoe UI Emoji';
   font-size: 16px;
   --font-big: 1.8rem;
 }

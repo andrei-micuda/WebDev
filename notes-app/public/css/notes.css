@@ -6,6 +6,11 @@
   --sticky-corner: 40px;
 }
 
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
 .logo-wrapper {
   background: var(--sticky-1-main);
   display: inline-block;
@@ -51,22 +56,57 @@ main {
   gap: var(--row-gap) calc((100% - (var(--sticky-width) * var(--sticky-number))) / (var(--sticky-number) - 1));
   grid-auto-rows: var(--sticky-height);
   width: 95%;
-  height: calc(100vh - 170px);
-  overflow: show;
+  min-height: calc(100vh - 170px);
   position: absolute;
-  bottom: 0;
+  top: 170px;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 30px;
+}
+
+#burger-btn {
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
+}
+
+#burger-close-btn {
+  display: block;
+  transform: scale(0.8);
+  margin-bottom: 20px;
 }
 
 .user-info {
-  padding: 10px;
+  display: inline-block;
+  height: 100%;
+  position: fixed;
+  transition: transform 0.5s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  overflow: hidden;
+  background: #8a8a8a;
+  z-index: 1;
+  padding: 15px;
+  box-sizing: border-box;
+  width: 350px;
 }
 
 .user-info>* {
+  cursor: pointer;
   font-size: 1.3rem;
+  display: inline-block;
   margin: 0;
+}
+
+#footer {
+  position: absolute;
+  bottom: 10px;
+}
+
+#footer>p {
+  margin: 0;
+  font-size: 1.1rem;
 }
 
 .blank-overlay {
@@ -74,6 +114,7 @@ main {
 }
 
 .blank-overlay p {
+  width: 90%;
   display: block;
   font-size: 2.2rem;
   position: absolute;
@@ -99,7 +140,8 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  box-sizing: border-box;
+  z-index: 2;
   padding: 60px;
   padding-top: 30px;
 }
@@ -322,11 +364,11 @@ main {
   display: none;
 }
 
-body>.note-focus:not(.hide)~*:not(.note-focus):not(.blank-overlay) {
+body .note-focus:not(.hide)~*:not(.note-focus):not(.blank-overlay) {
   filter: blur(1px);
 }
 
-body>.note-focus:not(.hide)~.blank-overlay>* {
+body .note-focus:not(.hide)~.blank-overlay>* {
   filter: blur(1px);
 }
 
@@ -378,8 +420,18 @@ body>.note-focus:not(.hide)~.blank-overlay>* {
     width: 100px;
   }
 
-  main {
-    padding-top: 0;
+  .blank-overlay p {
+    font-size: 2rem;
+  }
+
+  .blank-overlay img {
+    width: 110px;
+    bottom: 75px;
+    right: 75px;
+  }
+
+  .note-focus {
+    width: 80%;
   }
 
   .note-focus .note-settings {
@@ -394,6 +446,11 @@ body>.note-focus:not(.hide)~.blank-overlay>* {
 
   #note-title {
     width: 85%;
+  }
+
+  #note-body {
+    min-height: 200px !important;
+    height: 90% !important;
   }
 
   .note-focus .note-settings>svg {
@@ -413,6 +470,15 @@ body>.note-focus:not(.hide)~.blank-overlay>* {
     transform: scale(0.7);
     display: none;
   }
+
+  .create-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .create-btn svg {
+    transform: scale(1.2);
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -425,8 +491,21 @@ body>.note-focus:not(.hide)~.blank-overlay>* {
     font-size: 14px;
   }
 
+  .logo {
+    width: 80px;
+  }
+
   .user-info>* {
     font-size: 1.1rem;
+  }
+
+  .note-focus {
+    width: 90%;
+  }
+
+  .note-focus .confirm-btn,
+  .note-focus .close-btn {
+    transform: scale(1);
   }
 }
 
@@ -447,6 +526,11 @@ body>.note-focus:not(.hide)~.blank-overlay>* {
     justify-content: center;
     gap: var(--row-gap) 30px;
   }
+
+  .note-focus .note-corner {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 @media screen and (max-width: 420px) {
@@ -458,20 +542,12 @@ body>.note-focus:not(.hide)~.blank-overlay>* {
     --sticky-corner: 40px;
   }
 
+  .blank-overlay p {
+    font-size: 1.8rem;
+  }
+
   main {
     justify-content: center;
     gap: var(--row-gap) 30px;
   }
-
-  .note-focus {
-    width: 60%;
-  }
 }
-
-/* :root {
-  --sticky-number: 4;
-  --sticky-width: 22%;
-  --sticky-height: 190px;
-  --row-gap: 50px;
-  --sticky-corner: 40px;
-} */

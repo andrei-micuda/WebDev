@@ -14,15 +14,44 @@ async function readUsers() {
 
   // Get single user ID
   /*// awaits email and password //*/
-  router.post('/user/id', (req, res) => {
+  router.post('/user/id', async (req, res) => {
     const found = users.some(user => user.email === req.body.email);
     if (found) {
       const user = users.filter(user => user.email === req.body.email)[0];
       if (bcrypt.compareSync(req.body.password, user.passHash)) {
-        res.json({
+        //! UPDATEAZA CHESTIILE INAINTE SA TRIMITA RESPONSE-UL
+        const last = Object.assign({}, {
           found: true,
-          id: user.id
+          id: user.id,
+          lastIP: user.lastIP ? user.lastIP : null,
+          lastTime: user.lastTime ? user.lastTime : null,
+          logCount: user.logCount ? user.logCount : 0
         });
+
+        console.table(last);
+        res.json(last);
+
+        //* if user succesfully logged in, update last login ip and time
+        let ip = req.ip;
+        if (ip.substr(0, 7) == "::ffff:") {
+          ip = ip.substr(7)
+        }
+        user.lastIP = ip;
+
+        let currentdate = new Date();
+        const newLastTime = currentdate.getDate() + "/" +
+          (currentdate.getMonth() + 1).toString().padStart(2, '0') + "/" +
+          currentdate.getFullYear() + " @ " +
+          currentdate.getHours().toString().padStart(2, '0') + ":" +
+          currentdate.getMinutes().toString().padStart(2, '0') + ":" +
+          currentdate.getSeconds().toString().padStart(2, '0');
+        user.lastTime = newLastTime;
+
+        user.logCount = user.logCount ? user.logCount + 1 : 1;
+
+        console.log(users);
+
+        await userData.writeAll(users);
       } else {
         res.json({
           found: false

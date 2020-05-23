@@ -13,7 +13,7 @@ async function login(event) {
 
   let res;
   try {
-    res = await fetch('http://localhost:3000/api/users/user/id', {
+    res = await fetch('/api/users/user/id', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

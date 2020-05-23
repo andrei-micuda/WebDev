@@ -14,11 +14,11 @@
 
   <link href="https://fonts.googleapis.com/css?family=Rhodium+Libre&display=swap" rel="stylesheet">
 
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.12.0/js/OverlayScrollbars.js"></script>
 </head>
 
 <body>
+
   <div class="note-focus hide">
     <div class="note-corner"></div>
     <svg class="close-btn" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
@@ -64,8 +64,8 @@
           d="M9 19c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5-17v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712zm-3 4v16h-14v-16h-2v18h18v-18h-2z" />
       </svg>
     </div>
-    <input type="text" name="note-title" id="note-title" class="note-title" placeholder="Title...">
-    <textarea name="note-body" id="note-body" placeholder="Write your note here..." cols="30" rows="10"></textarea>
+    <input type="text" name="note-title" id="note-title" class="note-title" placeholder="Title..." maxlength="30">
+    <textarea name="note-body" id="note-body" placeholder="Write your note here..."></textarea>
     <svg class="confirm-btn" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
       clip-rule="evenodd">
       <path d="M24 4.685l-16.327 17.315-7.673-9.054.761-.648 6.95 8.203 15.561-16.501.728.685z" />
@@ -76,9 +76,21 @@
     <img src="img/logo.svg" alt="Notes logo" class="logo">
   </header>
 
+  <svg id='burger-btn' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" /></svg>
   <div class="user-info">
+    <svg id='burger-close-btn' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path
+        d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
+    </svg>
     <p></p>
-    <a href="#" id='logout-btn'>Log out</a>
+    <br>
+    <p id="background-btn">Change background</p>
+    <br>
+    <p id='logout-btn'>Log out</p>
+    <br>
+
+    <div id="footer"></div>
   </div>
 
   <div class="blank-overlay">
@@ -95,7 +107,7 @@
         <path
           d="M11 17h2v5l-2 2v-7zm3.571-12c0-2.903 2.36-3.089 2.429-5h-10c.068 1.911 2.429 2.097 2.429 5 0 3.771-3.429 3.291-3.429 10h12c0-6.709-3.429-6.229-3.429-10z" />
       </svg>
-      <p>Guci guci</p>
+      <p>Note title</p>
     </div> -->
   </main>
 
@@ -107,6 +119,8 @@
   </div>
 
   <script src="scripts/notes.js"></script>
+  <script src="scripts/idle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.13/dist/sweetalert2.all.min.js"></script>
 </body>
 
 </html>

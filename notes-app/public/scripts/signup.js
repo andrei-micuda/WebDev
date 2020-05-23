@@ -6,45 +6,57 @@ const signupBtn = document.querySelector('button[type = "submit"]');
 
 async function signup(event) {
   event.preventDefault();
-  const fullName = document.querySelector('#full-name').value;
-  const email = document.querySelector('#email-input').value;
-  const pass = document.querySelector('#pass-input').value;
-  const rePass = document.querySelector('#re-pass-input').value;
 
-  //if all the info has been provided continue
-  if (fullName && email && pass && rePass) {
-    if (pass !== rePass) {
+  //check if password meets all criteria
+  if (!document.querySelectorAll('.not-met').length) {
+    const fullName = document.querySelector('#full-name').value;
+    const email = document.querySelector('#email-input').value;
+    const pass = document.querySelector('#pass-input').value;
+    const rePass = document.querySelector('#re-pass-input').value;
+
+    //if all the info has been provided continue
+    if (fullName && email && pass && rePass) {
+      if (pass !== rePass) {
+        Swal.fire({
+          // titleText: 'Oops!',
+          titleText: 'Passwords don\'t match',
+          icon: 'error',
+          customClass: {
+            confirmButton: 'popup-btn'
+          }
+        });
+      } else {
+        const res = await fetch('/api/users/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            "fullName": fullName,
+            "email": email,
+            "password": pass
+          })
+        });
+        Swal.fire({
+          icon: 'success',
+          titleText: 'Account created!!',
+          showConfirmButton: false,
+          timer: 2500
+        });
+        setTimeout(() => window.location.replace('login.html'), 1500);
+      }
+    } else { //else prompt the user to fill all the info
       Swal.fire({
-        // titleText: 'Oops!',
-        titleText: 'Passwords don\'t match',
-        icon: 'error',
+        titleText: 'Please fill in all the info',
+        icon: 'warning',
         customClass: {
           confirmButton: 'popup-btn'
         }
       });
-    } else {
-      const res = await fetch('http://localhost:3000/api/users/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          "fullName": fullName,
-          "email": email,
-          "password": pass
-        })
-      });
-      Swal.fire({
-        icon: 'success',
-        titleText: 'Account created!!',
-        showConfirmButton: false,
-        timer: 2500
-      });
-      setTimeout(() => window.location.replace('login.html'), 1500);
     }
-  } else { //else prompt the user to fill all the info
+  } else {
     Swal.fire({
-      titleText: 'Please fill in all the info',
+      titleText: 'The password doesn\'t meet all the criteria',
       icon: 'warning',
       customClass: {
         confirmButton: 'popup-btn'
